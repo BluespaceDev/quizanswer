@@ -3,34 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
     <h1> Hello </h1>
 
-<!--    https://getbootstrap.com/docs/4.4/components/card/ -->
+    <!--    https://getbootstrap.com/docs/4.4/components/card/ -->
+    <!--    https://getbootstrap.com/docs/4.4/components/navs/#javascript-behavior -->
     <div class="card text-center">
         <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
+            <ul class="nav nav-tabs card-header-tabs nav-pills nav-justified" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+                    <a id="home-tab" class="nav-link active" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#home-item">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a id="menu1-tab" class="nav-link" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#menu1-item">menu1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a id="menu2-tab" class="nav-link" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#menu2-item">menu2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">disabled</a>
                 </li>
             </ul>
         </div>
         <div class="card-body">
-            <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="tab-content">
+                <div id="home-item" role="tabpanel" class="container tab-pane fade show active" aria-labelledby="home-tab"><br>
+                    <div class="card border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body text-primary">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body text-primary">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu1-item" role="tabpanel" class="container tab-pane fade" aria-labelledby="menu1-tab"><br>
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Header</div>
+                        <div class="card-body text-primary">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Header</div>
+                        <div class="card-body text-primary">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu2-item" role="tabpanel" class="container tab-pane fade" aria-labelledby="menu2-tab"><br>
+                    <h3>Menu 2</h3>
+                    <p>text</p>
                 </div>
             </div>
 
@@ -40,195 +73,11 @@
         </div>
     </div>
 
-<!--    https://getbootstrap.com/docs/4.4/components/navs/#javascript-behavior -->
-    <div class="container">
-<!--        Nav tabs -->
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu1">menu1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu2">menu2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">disabled</a>
-            </li>
-        </ul>
-<!--        Tab panes -->
-        <div class="tab-content">
-            <div id="home" role="tabpanel" class="container tab-pane fade show active"><br>
-                <h3>HOME</h3>
-                <p>text</p>
-            </div>
-            <div id="menu1" role="tabpanel" class="container tab-pane fade"><br>
-                <h3>Menu 1</h3>
-                <p>text</p>
-            </div>
-            <div id="menu2" role="tabpanel" class="container tab-pane fade"><br>
-                <h3>Menu 2</h3>
-                <p>text</p>
-            </div>
-        </div>
-    </div>
-
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-    </div>
-
-<!--    -->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
-        </li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">...1</div>
-        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">...2</div>
-        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...3</div>
-        <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">...4</div>
-    </div>
-
-    <script>
-        $(function () {
-            $('#myTab li:last-child a').tab('show')
-        })
-    </script>
-<!---->
-    <div class="container">
-        <h2>탭</h2>
-
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
-            <li role="presentation" class=""><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="false">Home</a></li>
-            <li role="presentation" class="active"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Profile</a></li>
-            <li role="presentation" class="dropdown">
-                <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                    <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
-                    <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-            <div role="tabpanel" class="tab-pane fade" id="home" aria-labelledby="home-tab">
-                <p>Home content</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade active in" id="profile" aria-labelledby="profile-tab">
-                <p>Profile content</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
-                <p>@fat content</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">
-                <p>@mdo content</p>
-            </div>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div>
-            <ul class="nav navbar-nav nav-tabs">
-                <li class="active"><a href="#first" >탭화면 첫번째</a></li>
-                <li><a href="#second" >탭화면 두번째</a></li>
-                <li><a href="#third" >탭화면 마지막</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="tab-content" style="margin-top: 80px;">
-        <div class="tab-pane fade active in" id="first">
-            <p>
-                첫번째 탭포커스가 위치할 내용입니다.<br/>
-                id="first인대 상단 네비게이션의 href속성값인 #아이디"명과 일치하는 패널이랑 맵핑을 시켜줍니다.
-            </p>
-        </div>
-        <div class="tab-pane fade" id="second">
-            <p>
-                두번째 탭포커스 위치할 내용입니다.<br/>
-                data-togge="tab"을 지정해주셔야 탭버튼으로 인식을 합니다.
-            </p>
-        </div>
-        <div class="tab-pane fade" id="third">
-            <p>
-                마지막 세번째 탭클릭시 보여지는 컨텐츠 내용입니다.
-            </p>
-        </div>
-    </div>
-
-
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#qwe">QWE</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#asd">ASD</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#zxc">ZXC</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane fade show active" id="qwe">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id ornare libero. Vivamus iaculis, justo vel mattis pharetra, nisi ligula varius nisl, sit amet mollis tortor ligula vitae nisi.</p>
-        </div>
-        <div class="tab-pane fade" id="asd">
-            <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus ut facilisis tristique.</p>
-        </div>
-        <div class="tab-pane fade" id="zxc">
-            <p>Curabitur dignissim quis nunc vitae laoreet. Etiam ut mattis leo, vel fermentum tellus. Sed sagittis rhoncus venenatis. Quisque commodo consectetur faucibus. Aenean eget ultricies justo.</p>
-        </div>
-    </div>
-
-
-
-    <ul class="nav nav-tabs">
-        <li class="active">
-            <a href="#">대문</a>
-        </li>
-        <li><a href="#">...</a></li>
-        <li><a href="#">...</a></li>
-    </ul>
-
-    <ul class="nav nav-tabs" id="myTab">
-        <li class="active"><a href="#home">대문</a></li>
-        <li><a href="#profile">프로필</a></li>
-        <li><a href="#messages">메시지</a></li>
-        <li><a href="#settings">설정</a></li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane active" id="home">...</div>
-        <div class="tab-pane" id="profile">...</div>
-        <div class="tab-pane" id="messages">...</div>
-        <div class="tab-pane" id="settings">...</div>
-    </div>
-
-
-    <script src="js/bootstrap.min.js"></script>
+<!--    <script>-->
+<!--        $(function () {-->
+<!--            $('#myTab li:last-child a').tab('show')-->
+<!--        })-->
+<!--    </script>-->
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
