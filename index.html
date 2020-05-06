@@ -11,13 +11,13 @@
     <!--    https://getbootstrap.com/docs/4.4/components/card/ -->
     <!--    https://getbootstrap.com/docs/4.4/components/navs/#javascript-behavior -->
     <div class="card text-center">
-        <div class="card-header">
+        <div id="tab-title" class="card-header">
             <ul class="nav nav-tabs card-header-tabs nav-pills nav-justified" role="tablist">
                 <li class="nav-item">
-                    <a id="home-tab" class="nav-link active" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#home-item">home</a>
+                    <a id="home-tab" class="nav-link active" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#home-panel">home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="menu1-tab" class="nav-link" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#menu1-item">menu1</a>
+                    <a id="menu1-tab" class="nav-link" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#menu1-panel">menu1</a>
                 </li>
                 <li class="nav-item">
                     <a id="menu2-tab" class="nav-link" data-toggle="tab" role="tab" aria-controls="home-item" aria-selected="true" href="#menu2-item">menu2</a>
@@ -27,16 +27,10 @@
                 </li>
             </ul>
         </div>
-        <div class="card-body">
+
+        <div id="tab-panel" class="card-body">
             <div class="tab-content">
-                <div id="home-item" role="tabpanel" class="container tab-pane fade show active" aria-labelledby="home-tab"><br>
-                    <div class="card border-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body text-primary">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
+                <div id="home-panel" role="tabpanel" class="container tab-pane fade show active" aria-labelledby="home-tab"><br>
                     <div class="card border-primary mb-3" style="max-width: 18rem;">
                         <div class="card-header">Header</div>
                         <div class="card-body text-primary">
@@ -45,14 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="menu1-item" role="tabpanel" class="container tab-pane fade" aria-labelledby="menu1-tab"><br>
-                    <div class="card border-primary mb-3">
-                        <div class="card-header">Header</div>
-                        <div class="card-body text-primary">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
+                <div id="menu1-panel" role="tabpanel" class="container tab-pane fade" aria-labelledby="menu1-tab"><br>
                     <div class="card border-primary mb-3">
                         <div class="card-header">Header</div>
                         <div class="card-body text-primary">
@@ -69,18 +56,36 @@
 
             <h5 class="card-title">Special title treatment</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a id='btn' href="#" class="btn btn-primary">Go somewhere</a>
+            <button > test </button>
         </div>
     </div>
-
-<!--    <script>-->
-<!--        $(function () {-->
-<!--            $('#myTab li:last-child a').tab('show')-->
-<!--        })-->
-<!--    </script>-->
+    <div id="tab-panel-item-template" class="card border-primary mb-3 text-left" style="display: none">
+        <div class="card-body text-primary">
+            question
+        </div>
+        <div class="card-footer">
+            answer
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $('#tab-title .nav-link').on("click", function() {
+                var click_tab_href = $(this).attr('href');
+                var active_panel = $(click_tab_href);
+                // var template_card = $('#' + active_panel.attr('id') + ' [id*=template]').clone();
+                var template_card = $('#tab-panel-item-template').clone();
+                template_card.attr("style", "display: block")
+                template_card.attr("id", active_panel.attr('id') + '-item-' + $('#' + active_panel.attr('id') + ' > div').length);
+                template_card.appendTo('#' + active_panel.attr('id'));
+                // console.log(active_panel.attr('id'))
+            });
+        });
+    </script>
 </body>
 </html>
